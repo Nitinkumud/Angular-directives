@@ -1,0 +1,70 @@
+<div class="w3-container w3-teal">
+    <h1>Angular Directives</h1>
+</div>
+<br>
+<div class="w3-container">
+    <div class="w3-panel w3-blue w3-round-xlarge">
+        <p>*ngIf</p>
+    </div>
+    <button class="w3-button w3-blue w3-round-xxlarge" (click)="onCreateBlock()">Create Block</button>
+    <br>
+    <div *ngIf='isValid; then thenBlock else elseBlock'></div>
+    <ng-template #thenBlock>
+        <div class="w3-panel w3-blue w3-round-xlarge">
+            <p>Block created</p>
+        </div>
+    </ng-template>
+
+    <ng-template #elseBlock>
+        <div class="w3-panel w3-blue w3-round-xlarge">
+            <p>No block has been created yet</p>
+        </div>
+    </ng-template>
+
+
+    <div class="w3-container w3-pink">
+        <h1>ngSwitch</h1>
+        <select class="w3-panel w3-green" (change)="getLanguage($event)">
+            <option value="default">Select Language</option>
+            <option value="Angular">Angular</option>
+            <option value="React">React</option>
+            <option value="ML">ML</option>
+            <option value="Java">Java</option>
+        </select>
+    </div>
+
+    <div class="w3-container">
+        <h2>Selected Div using ngSwitch</h2>
+        <div class="w3-panel w3-round-xlarge w3-pink" [ngSwitch]="selectedLanguage">
+            <p *ngSwitchDefault="'Angular'">Please select language</p>
+            <p *ngSwitchCase="'Angular'">Angular</p>
+            <p *ngSwitchCase="'React'">React</p>
+            <p *ngSwitchCase="'ML'">ML</p>
+            <p *ngSwitchCase="'Java'">Java</p>
+        </div>
+    </div>
+
+    <div class="w3-container">
+        <h2>*ngFor</h2>
+       
+        <table class="w3-table-all">
+          <thead>
+            <tr class="w3-aqua">
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.website}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <p>This is a normal paragraph</p>
+      <p appRedBlack >This is a custom directive paragraph</p>
+
+
+</div>
